@@ -24,7 +24,6 @@ public int findFirstVowel(String sWord)
 	return -1;
 }
 
-public int allConsonants(String sWord)
 
 public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
@@ -34,8 +33,17 @@ public String pigLatin(String sWord)
 	{
 		return sWord + "ay";
 	}
+	else if(findFirstVowel(sWord) == 0)
+	{
+		return sWord + "way";
+	}
+	else if(sWord.substring(0, 2).equals("qu"))
+	{
+		return sWord.substring(2, sWord.length()) + "qu" + "ay";
+	}
 	else
 	{
-		return "ERROR!";
+		return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0,findFirstVowel(sWord)) + "ay";
 	}
+	
 }
